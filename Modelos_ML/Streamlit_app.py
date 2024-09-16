@@ -39,7 +39,7 @@ fabricante = st.text_input('Ingrese la marca')
 # Boton para ejecutar la predicción
 if st.button('Obtener recomendaciones'):
     # Cargamos el dataset
-    df_Vehiculos = pd.read_parquet('../Data/df_vfed.parquet')
+    df_Vehiculos = pd.read_parquet('./Data/df_vfed.parquet')
     df_Vehiculos_N = df_Vehiculos[df_Vehiculos['Year'] > 2010]
     df_Vehiculos_N.loc[df_Vehiculos_N['CO2 (p/mile)'] < 0, 'CO2 (p/mile)'] = 0
     
