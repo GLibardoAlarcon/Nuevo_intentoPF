@@ -12,50 +12,98 @@ st.set_page_config(
 )
 # Inicializar el estado de la sesión
 if 'page' not in st.session_state:
-    st.session_state.page = 'Modelos_ML'
+    st.session_state.page = 'Portada'
 
 # Función para mostrar la página de presentación
 def mostrar_Modelos():
-    st.session_state.page = 'Modelos_ML'
+    st.session_state.page = 'Portada'
 
-# Función para mostrar la página de análisis
+# Función para mostrar la página del ML1
 def mostrar_Modelo_1():
-    st.session_state.page = 'Modelo_1'
+    st.session_state.page = 'Eficiencia_E'
 
-# Función para mostrar la página de contacto
+# Función para mostrar la página del ML2
 def mostrar_Modelo_2():
-    st.session_state.page = 'Modelo_2'
+    st.session_state.page = 'Costo_O'
 
 # Crear botones para cambiar de página
 col1, col2, col3 = st.columns([1, 1, 1])
 with col1:
-    if st.button('Modelos_ML'):
+    if st.button('Portada'):
         mostrar_Modelos()
 
 with col2:
-    if st.button('Modelo_1'):
+    if st.button('Eficiencia_E'):
         mostrar_Modelo_1()
 
 with col3:
-    if st.button('Modelo_2'):
+    if st.button('Costo_O'):
         mostrar_Modelo_2()
-
+# CSS para estilizar los botones
+st.markdown("""
+    <style>
+    .stButton>button {
+        background-color: #333333;
+        color: white;
+        border: none;
+        padding: 10px 24px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        border-radius: 12px;
+    }
+    .stButton>button:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid #333333;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 # Mostrar la página correspondiente
 #Pagina inicial
-if st.session_state.page == 'Modelos_ML':
-    st.markdown("# Bienvenidos a la aplicación de ML")
-    st.write("""
-    Esta aplicación te permitirá:
-    - Evaluar la eficiencia de vehículos.
-    - Comparar costos de combustible y emisiones de CO2.
-    - Obtener recomendaciones basadas en tus necesidades.
+if st.session_state.page == 'Portada':
+     st.markdown("""
+    <style>
+    .titulo-portada {
+        font-size: 50px;
+        color: #FFFFFF; /* Cambia el color del título */
+        font-weight: bold;
+        text-align: center; /* Centrar el título */
+        padding: 20px; /* Espaciado */
+        background-color: #000000; /* Fondo detrás del título */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2); /* Sombra para darle más profundidad */
+    }
+    </style>
+    <div class="titulo-portada">
+        Bienvenidos a la Plataforma de Vehículos Eficientess
+    </div>
+    """, unsafe_allow_html=True)
+     st.write("""
+        Esta plataforma utiliza dos modelos de machine learning para optimizar la eficiencia de vehículos y maximizar ahorros operativos. 
+        Explore cada modelo para obtener predicciones personalizadas sobre los vehículos.
+     """)
+     st.markdown("""
+      <h2 style='text-align: center;'>Modelo de eficiencia energética</h2>
+      """, unsafe_allow_html=True)
+     st.write("""
+     Para el modelo de eficiencia energética se optiene como resultado 5 vehículos altamente eficientes en conceptos como es el gasto de combustible, costo de combustible y produccción de CO2, de esta manera se va a tomar la mejor decición a la hora de agregar un nuevo vehículo a la flota que priorice bajos costos en combustible y ademas sea amigable con el medio ambiente
+     """)
+     st.image('https://fullandfast.com/blog/wp-content/uploads/2020/03/uber-vehiculo-electrico.jpg', caption="Amigables con el planeta", width=300)
+     st.markdown("""
+      <h2 style='text-align: center;'>Modelo de maximización operativa y preventa de vehículo</h2>
+      """, unsafe_allow_html=True)
+     st.write("""
+     Para el modelo de maximización operativa y preventa de vehículo se tiene como objetivo dos predicciones, la primera donde podemos encontrar una gama de vehículos con los menores gastos operativos, apartir de esto se puede tomar una deciones de costo y beneficio a largo plazo, por ultimo tenemos un modelo que predice la preventa de un vehículo, lo cual nos permite saber que tan balorizado esta y de esta manera tomar la mejor decición a la hora de vender
+     """)
+     st.image('https://www.redeweb.com/wp-content/uploads/2017/06/04_1881685204.jpg', caption="Pensando en tu economia", width=300)
+     
 
-    Por favor, usa el menú de la izquierda para navegar por las secciones.
-    """)
 
-    st.image('https://link_al_logo_o_imagen.jpg', width=300)
     # Pagina del modelo 1
-elif st.session_state.page == 'Modelo_1':
+elif st.session_state.page == 'Eficiencia_E':
     #Segundo modelo de ML1 
     # Imagen de la empresa
     # Definir estilo CSS personalizado para el logotipo
