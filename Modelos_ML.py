@@ -128,7 +128,7 @@ elif st.session_state.page == 'Eficiencia_E':
     # Cargamos el modelo guardado 
     modelo_ML1 = joblib.load('./Modelos_ML/Modelo_ML1.joblib')
     # Cargamos el dataset
-    df_Vehiculos = pd.read_parquet('./Data/Df_vfed.parquet')
+    df_Vehiculos = pd.read_parquet('./Data/df_vfed.parquet')
     df_Vehiculos_N = df_Vehiculos[df_Vehiculos['Year'] > 2010]
     df_Vehiculos_F = df_Vehiculos_N[df_Vehiculos_N['CO2 (p/mile)'] >= 0]
     # Realizamos una función para categorizar los vehículos
