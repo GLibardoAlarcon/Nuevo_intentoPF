@@ -297,3 +297,6 @@ elif st.session_state.page == 'Eficiencia_E':
              st.write('No se a elegido vehículo')
     else:
         st.write("No se ha generado ninguna recomendación")
+# Opción para el modelo 2
+elif st.session_state.page == 'Costo_O':
+     st.write("Modelo 2")
