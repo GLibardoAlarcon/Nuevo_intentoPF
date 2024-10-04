@@ -89,10 +89,22 @@ st.plotly_chart(fig)
 df_long = df_filtrado.melt(id_vars='vehicle_type', value_vars=['fuel_cost', 'electric_cost', 'noise_level'],
                   var_name='Tipo', value_name='Valor')
 
-# Crear el gráfico de barras con Plotly Express
-fig = px.bar(df_long, x='vehicle_type', y='Valor', color='Tipo', barmode='group',
-             labels={'vehicle_type': 'Costos y Niveles de Ruido'},
+# Crear el gráfico de barras con nombres personalizados
+fig = px.bar(df_long, 
+             x='vehicle_type', 
+             y='Valor', 
+             color='Tipo', 
+             barmode='group',
+             labels={'Valor': 'Valor Comparado (USD o dB)', 
+                     'Tipo': 'Medidas'},  # Personaliza etiquetas de los ejes
              title='Comparación de Costos y Niveles de Ruido')
+
+# Personalizar los nombres en la leyenda (si es necesario)
+fig.for_each_trace(lambda t: t.update(name={
+    'fuel_cost': 'Costo Combustible Convencional',
+    'electric_cost': 'Costo de Energía Eléctrica',
+    'noise_level': 'Nivel de Ruido (Decibelios)'
+}[t.name]))
 
 # Mostrar el gráfico en Streamlit
 st.plotly_chart(fig)
